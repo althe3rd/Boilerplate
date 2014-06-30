@@ -31,9 +31,7 @@ gulp.task('styles', function() {
 
 // Scripts
 gulp.task('scripts', function() {
-  return gulp.src(['js/jquery.js'])
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
+  return gulp.src(['js/vendors/*.js','js/*.js'])
     .pipe(concat('main.js'))
     .pipe(gulp.dest('dist/scripts'))
     .pipe(rename({ suffix: '.min' }))
@@ -41,6 +39,14 @@ gulp.task('scripts', function() {
     .pipe(livereload(server))
     .pipe(gulp.dest('dist/scripts'))
     .pipe(notify({ message: 'Scripts task complete' }));
+});
+
+// Debug
+gulp.task('debug', function() {
+  return gulp.src(['js/*.js'])
+    .pipe(jshint('.jshintrc'))
+    .pipe(jshint.reporter('default'))
+    .pipe(notify({ message: 'Debug task complete' }));
 });
 
 // Images
@@ -79,6 +85,9 @@ gulp.task('watch', function() {
 
     // Watch .js files
     gulp.watch('js/**/*.js', ['scripts']);
+
+    // Debug .js files
+    gulp.watch('js/*.js', ['debug']);
 
     // Watch image files
     gulp.watch('img/**/*', ['images']);
