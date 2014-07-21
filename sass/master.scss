@@ -1,5 +1,18 @@
-@import 'reset';
-@import 'scaffolding';
-@import 'buttons';
-@import 'colors';
-@import 'fonts';
+/************************/
+/*  Base Sass Structure */
+/************************/
+
+@import 'partials/_reset';
+@import 'partials/_underscore.scss';
+@import 'partials/_scaffolding';
+@import 'partials/_buttons';
+@import 'partials/_colors';
+@import 'partials/_fonts';
+
+
+/**************************/
+/*  Theme specific Styles */
+/**************************/
+
+@import 'theme/_themeColors';
+@import 'theme/_themeStructure';

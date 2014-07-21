@@ -2,10 +2,11 @@
 /* Clear Fix         */
 /*********************/
 
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+html {
   box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 .cf:before,
@@ -71,6 +72,11 @@
   .span-66 {
     float: left;
     width: 66%;
+  }
+
+  .span-10 {
+    float: left;
+    width: 10%;
   }
 
 
